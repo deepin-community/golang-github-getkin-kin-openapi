@@ -1,0 +1,22 @@
+Description: Skip TestExtraSiblingsInRemoteRef Internet test
+ Fixes the following error
+   Error Trace: /<<PKGBUILDDIR>>/_build/src/github.com/getkin/kin-openapi/openapi3/issue513_test.go:69
+   Error:       Received unexpected error:
+                Get "http://schemas.sentex.io/store/categories.json": dial tcp 52.217.226.165:80: connect: network is unreachable
+   Test:        TestExtraSiblingsInRemoteRef
+Author: Anthony Fok <foka@debian.org>
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2023-12-27
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/openapi3/issue513_test.go
++++ b/openapi3/issue513_test.go
+@@ -8,6 +8,7 @@
+ )
+ 
+ func TestExtraSiblingsInRemoteRef(t *testing.T) {
++	t.Skip("skipping Internet test during Debian build")
+ 	spec := []byte(`
+ openapi: 3.0.1
+ servers:
