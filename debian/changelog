@@ -1,5 +1,264 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-getkin-kin-openapi (0.124.0-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 0.124.0
+  * Bump Standards-Version to 4.7.0 (no change)
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Anthony Fok <foka@debian.org>  Fri, 26 Apr 2024 05:18:06 -0600
+
+golang-github-getkin-kin-openapi (0.123.0-1) unstable; urgency=medium
+
+  * New upstream version 0.123.0
+  * Bump versioned dependencies as per go.mod
+
+ -- Anthony Fok <foka@debian.org>  Wed, 21 Feb 2024 10:23:33 -0700
+
+golang-github-getkin-kin-openapi (0.122.0-3) unstable; urgency=medium
+
+  * Skip TestIssue495WithDraft04 to avoid FTBFS on Launchpad build farm:
+      Received unexpected error: Get "http://json-schema.org/draft-04/schema":
+      dial tcp: lookup json-schema.org on 127.0.0.53:53: no such host
+    See https://launchpad.net/ubuntu/+source/golang-github-getkin-kin-openapi/0.122.0-2
+
+ -- Anthony Fok <foka@debian.org>  Sun, 14 Jan 2024 00:58:13 -0700
+
+golang-github-getkin-kin-openapi (0.122.0-2) unstable; urgency=medium
+
+  * Skip TestExtraSiblingsInRemoteRef Internet test in
+    openapi3/issue513_test.go; fixes FTBFS in 0.122.0-1
+
+ -- Anthony Fok <foka@debian.org>  Wed, 27 Dec 2023 14:06:23 -0700
+
+golang-github-getkin-kin-openapi (0.122.0-1) unstable; urgency=medium
+
+  * New upstream version 0.122.0
+  * Add ca-certificates as build-dependency; fixes "tls: failed to
+    verify certificate: x509: certificate signed by unknown authority"
+    error with TestIssue495WithDraft04
+
+ -- Anthony Fok <foka@debian.org>  Sat, 09 Dec 2023 00:55:47 -0700
+
+golang-github-getkin-kin-openapi (0.120.0-1) unstable; urgency=medium
+
+  * New upstream version 0.120.0
+  * Bump versioned dependencies as per go.mod
+
+ -- Anthony Fok <foka@debian.org>  Thu, 12 Oct 2023 01:09:33 -0600
+
+golang-github-getkin-kin-openapi (0.118.0-1) unstable; urgency=medium
+
+  * New upstream version 0.118.0
+
+ -- Anthony Fok <foka@debian.org>  Thu, 21 Sep 2023 01:56:00 -0600
+
+golang-github-getkin-kin-openapi (0.117.0-1) unstable; urgency=medium
+
+  * New upstream version 0.117.0
+  * Add dependency on golang-github-perimeterx-marshmallow-dev (>= 1.1.4)
+    as per go.mod
+  * Exclude new cmd/validate directory from build
+  * Remove DH_GOLANG_INSTALL_EXTRA := openapi3filter/fixtures
+    as upstream has moved the directory under testdata/
+
+ -- Anthony Fok <foka@debian.org>  Sun, 18 Jun 2023 01:11:14 -0600
+
+golang-github-getkin-kin-openapi (0.110.0-1) unstable; urgency=medium
+
+  * New upstream version 0.110.0
+
+ -- Anthony Fok <foka@debian.org>  Wed, 25 Jan 2023 12:16:08 -0700
+
+golang-github-getkin-kin-openapi (0.108.0-1) unstable; urgency=medium
+
+  * New upstream version 0.108.0
+  * Bump dependency: golang-github-stretchr-testify-dev (>= 1.8.1)
+  * Bump Standards-Version to 4.6.2 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Mon, 23 Jan 2023 07:31:29 -0700
+
+golang-github-getkin-kin-openapi (0.107.0-1) unstable; urgency=medium
+
+  * New upstream version 0.107.0
+  * Bump build-dependencies golang-any (>= 2:1.16~) and dh-golang (>= 1.58~)
+    to facilitate backports
+  * Add new dependency on golang-github-mohae-deepcopy-dev
+
+ -- Anthony Fok <foka@debian.org>  Sat, 29 Oct 2022 03:40:56 -0600
+
+golang-github-getkin-kin-openapi (0.103.0-1) unstable; urgency=medium
+
+  * New upstream version 0.103.0
+
+ -- Anthony Fok <foka@debian.org>  Fri, 23 Sep 2022 13:29:42 -0600
+
+golang-github-getkin-kin-openapi (0.100.0-1) unstable; urgency=medium
+
+  * New upstream version 0.100.0
+
+ -- Anthony Fok <foka@debian.org>  Fri, 16 Sep 2022 13:38:41 -0600
+
+golang-github-getkin-kin-openapi (0.98.0-1) unstable; urgency=medium
+
+  * New upstream version 0.98.0
+
+ -- Anthony Fok <foka@debian.org>  Mon, 29 Aug 2022 12:54:11 -0600
+
+golang-github-getkin-kin-openapi (0.97.0-2) unstable; urgency=medium
+
+  * Fix binary dependency on golang-gopkg-yaml.v3-dev
+
+ -- Anthony Fok <foka@debian.org>  Tue, 28 Jun 2022 05:31:03 -0600
+
+golang-github-getkin-kin-openapi (0.97.0-1) unstable; urgency=medium
+
+  * New upstream version 0.97.0
+  * Update versioned dependencies as per go.mod, especially
+    golang-gopkg-yaml.v3-dev (>= 3.0.1)
+  * Bump Standards-Version to 4.6.1 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Sat, 18 Jun 2022 04:53:08 -0600
+
+golang-github-getkin-kin-openapi (0.94.0-1) unstable; urgency=medium
+
+  * New upstream version 0.94.0
+  * Remove debian/patches/0001-fix-test-on-32bit-archs.patch
+    as it as been applied upstream in v0.94.0
+  * Build-Depends on debhelper (>= 13.4), remove --buildsystem=golang
+    and add --builddirectory=_build
+  * Add explicit dependency on golang-gopkg-yaml.v2-dev (>= 2.3.0)
+    as per upstream since v0.76.0
+
+ -- Anthony Fok <foka@debian.org>  Sat, 02 Apr 2022 23:13:17 -0600
+
+golang-github-getkin-kin-openapi (0.91.0-2) unstable; urgency=medium
+
+  * Fix integer overflow in test on 32-bit architectures.
+    This fixes "autopkgtest regression on armhf and i386" since 0.90.0-1.
+    Thanks to Paul Gevers for the bug report! (Closes: #1007733)
+
+ -- Anthony Fok <foka@debian.org>  Mon, 28 Mar 2022 05:17:23 -0600
+
+golang-github-getkin-kin-openapi (0.91.0-1) unstable; urgency=medium
+
+  * New upstream version 0.91.0
+
+ -- Anthony Fok <foka@debian.org>  Sun, 20 Mar 2022 15:46:19 -0600
+
+golang-github-getkin-kin-openapi (0.90.0-1) unstable; urgency=medium
+
+  * New upstream version 0.90.0
+
+ -- Anthony Fok <foka@debian.org>  Mon, 28 Feb 2022 19:31:44 -0700
+
+golang-github-getkin-kin-openapi (0.85.0-1) unstable; urgency=medium
+
+  * New upstream version 0.85.0
+  * Use dh-sequence-golang instead of dh-golang and --with=golang
+  * Reorder fields in debian/control and debian/copyright as would be
+    generated in the next dh-make-golang release after 0.6.0-1
+  * Add debian/upstream/metadata
+
+ -- Anthony Fok <foka@debian.org>  Thu, 16 Dec 2021 00:02:52 -0700
+
+golang-github-getkin-kin-openapi (0.80.0-1) unstable; urgency=medium
+
+  * New upstream version 0.80.0
+
+ -- Anthony Fok <foka@debian.org>  Thu, 04 Nov 2021 05:32:52 -0600
+
+golang-github-getkin-kin-openapi (0.75.0-1) unstable; urgency=medium
+
+  * New upstream version 0.75.0
+
+ -- Anthony Fok <foka@debian.org>  Sun, 31 Oct 2021 16:27:05 -0600
+
+golang-github-getkin-kin-openapi (0.68.0-1) unstable; urgency=medium
+
+  * New upstream version 0.68.0
+
+ -- Anthony Fok <foka@debian.org>  Fri, 29 Oct 2021 01:31:15 -0600
+
+golang-github-getkin-kin-openapi (0.61.0-1) unstable; urgency=medium
+
+  * New upstream version 0.61.0
+  * debian/watch: Scan for up to 100 most recent versions via api.github.com
+  * Add build-dependency on golang-github-gorilla-mux-dev
+  * Bump Standards-Version to 4.6.0 (no change)
+  * Mark library package with "Multi-Arch: foreign"
+
+ -- Anthony Fok <foka@debian.org>  Fri, 15 Oct 2021 04:57:53 -0600
+
+golang-github-getkin-kin-openapi (0.39.0-2) unstable; urgency=medium
+
+  * Fix dependency on golang-github-go-openapi-jsonpointer-dev
+    from (>= 0.19.5) to (>= 1:0.19.5)
+
+ -- Anthony Fok <foka@debian.org>  Sun, 15 Aug 2021 17:28:37 -0600
+
+golang-github-getkin-kin-openapi (0.39.0-1) unstable; urgency=medium
+
+  * New upstream version 0.39.0
+  * Revert "Backport patch to make 2to3 more deterministic"
+    as this was fixed upstream in version 0.34.0
+  * Add dependency on golang-github-go-openapi-jsonpointer-dev
+
+ -- Anthony Fok <foka@debian.org>  Sun, 08 Aug 2021 04:12:27 -0600
+
+golang-github-getkin-kin-openapi (0.32.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Backport patch to make 2to3 more deterministic (Closes: #988249)
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 16 May 2021 18:38:43 +0800
+
+golang-github-getkin-kin-openapi (0.32.0-1) unstable; urgency=medium
+
+  * New upstream version 0.32.0
+
+ -- Anthony Fok <foka@debian.org>  Thu, 31 Dec 2020 17:19:43 -0700
+
+golang-github-getkin-kin-openapi (0.31.0-1) unstable; urgency=medium
+
+  * New upstream version 0.31.0
+  * Bump Standards-Version to 4.5.1 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Wed, 02 Dec 2020 00:44:13 -0700
+
+golang-github-getkin-kin-openapi (0.26.0-1) unstable; urgency=medium
+
+  * New upstream version 0.26.0
+  * debian/control: Change Section from devel to golang
+
+ -- Anthony Fok <foka@debian.org>  Mon, 16 Nov 2020 04:35:13 -0700
+
+golang-github-getkin-kin-openapi (0.23.0-2) unstable; urgency=medium
+
+  * Source-only upload for migration to testing
+
+ -- Anthony Fok <foka@debian.org>  Fri, 06 Nov 2020 16:35:53 -0700
+
+golang-github-getkin-kin-openapi (0.23.0-1) unstable; urgency=medium
+
+  * New upstream version 0.23.0: kin-openapi is now needed by hugo,
+    so this is to reintroduce the package after its removal request in #940506
+  * debian/gbp.conf: Set debian-branch to debian/sid for DEP-14 conformance
+  * Apply "cme fix dpkg" fixes:
+    - Organize debian/control fields
+    - Update debhelper dependency to "Build-Depends: debhelper-compat (= 13)"
+    - Bump Standards-Version to 4.5.0 (no change)
+  * debian/control: Add "Rules-Requires-Root: no"
+  * debian/control: Set versioned dependencies as per go.mod
+  * debian/control: Update package description as per README.md
+  * Add myself to Uploaders and to debian/copyright
+  * debian/rules: Set DH_GOLANG_INSTALL_EXTRA := openapi3filter/fixtures
+  * debian/copyright: Give credit to Peter Bourgon
+    for the code in openapi3filter/validation_kit.go that was borrowed from
+    https://github.com/go-kit/kit/blob/v0.10.0/transport/http/server.go.
+    Special thanks to Thorsten Alteholz for catching the omission.
+
+ -- Anthony Fok <foka@debian.org>  Thu, 29 Oct 2020 19:31:41 -0600
+
+golang-github-getkin-kin-openapi (0.1.0+git20181119.fa639d0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #914219)
+
+ -- Alexandre Viau <aviau@debian.org>  Tue, 20 Nov 2018 13:22:04 -0500

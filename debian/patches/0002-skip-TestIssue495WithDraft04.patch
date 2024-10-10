@@ -1,0 +1,25 @@
+Description: Skip TestIssue495WithDraft04 to avoid FTBFS on Launchpad build farm
+ Fixes the following error:
+ .
+   Error Trace:	/<<PKGBUILDDIR>>/_build/src/github.com/getkin/kin-openapi/openapi3/issue495_test.go:117
+   Error:      	Received unexpected error:
+               	Get "http://json-schema.org/draft-04/schema": dial tcp: lookup json-schema.org on 127.0.0.53:53: no such host
+   Test:       	TestIssue495WithDraft04
+ .
+ See https://launchpad.net/ubuntu/+source/golang-github-getkin-kin-openapi/0.122.0-2
+Author: Anthony Fok <foka@debian.org>
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2024-01-14
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/openapi3/issue495_test.go
++++ b/openapi3/issue495_test.go
+@@ -85,6 +85,7 @@
+ }
+ 
+ func TestIssue495WithDraft04(t *testing.T) {
++	t.Skip("fails with \"lookup json-schema.org on 127.0.0.53:53: no such host\" on Launchpad build farm, skipping")
+ 	spec := []byte(`
+ openapi: 3.0.1
+ servers:
